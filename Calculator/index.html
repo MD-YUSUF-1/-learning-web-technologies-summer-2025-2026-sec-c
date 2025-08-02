@@ -72,10 +72,7 @@
             btn.style.width = '142px';
             btn.style.height = '40px';
             btn.innerText = buttons[i];
-            // var val=[];
             btn.addEventListener("click", function(){
-                // val.push(buttons[i])
-                // console.log(val)
                 handleClick(buttons[i]);
             })
             btnDiv.appendChild(btn)
@@ -84,12 +81,27 @@
         display.style.padding= "10px"
         display.style.fontSize='30px'
         let displayValue=[]
+        let forResult = []
         function handleClick(value){
-           if(displayValue[displayValue.length-1]=='+'){
-                displayValue = display
+           if(value == "C"){
+                display.innerText="";
+                displayValue=[];
+                forResult=[]
+           }
+           else if(value == "+" || value == "-"|| value == "*" || value == "/" )
+           {
+                forResult.push(displayValue.join(""))
+                forResult.push(value)
+                display.innerText += value;
+                displayValue=[];
+                console.log(forResult);
+           }
+           else if(value=="="){
+             
            }
            else{
-            display = value
+            displayValue.push(value)
+            display.innerText += value;
            }
 
         }
