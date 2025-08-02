@@ -54,7 +54,7 @@
         // parentDiv.appendChild(table);
 
         let buttons = [
-            "7", "8", "9", "/","4", "5", "6", "*","1", "2", "3", "-","0", "C", "=", "+"
+            "7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", "C", "=", "+"
         ];
         let display = document.createElement("div");
         display.style.border = "1px solid black"
@@ -72,37 +72,38 @@
             btn.style.width = '142px';
             btn.style.height = '40px';
             btn.innerText = buttons[i];
-            btn.addEventListener("click", function(){
+            btn.addEventListener("click", function () {
                 handleClick(buttons[i]);
             })
             btnDiv.appendChild(btn)
             parentDiv.appendChild(btnDiv)
         }
-        display.style.padding= "10px"
-        display.style.fontSize='30px'
+        
+        display.style.padding = "10px"
+        display.style.fontSize = '30px'
         let displayValue=[]
         let forResult = []
-        function handleClick(value){
-           if(value == "C"){
-                display.innerText="";
+        function handleClick(value) {
+            if (value == "C") {
+                display.innerText = "";
                 displayValue=[];
                 forResult=[]
-           }
-           else if(value == "+" || value == "-"|| value == "*" || value == "/" )
-           {
+            }
+               else if(value == "+" || value == "-"|| value == "*" || value == "/" )
+               {
+                    forResult.push(displayValue.join(""))
+                    forResult.push(value)
+                    display.innerText += value;
+                    displayValue=[];
+               }
+            else if (value == "=") {
                 forResult.push(displayValue.join(""))
-                forResult.push(value)
+                display.innerText=eval(forResult.join(""))            
+            }
+            else {
+                displayValue.push(value)
                 display.innerText += value;
-                displayValue=[];
-                console.log(forResult);
-           }
-           else if(value=="="){
-             
-           }
-           else{
-            displayValue.push(value)
-            display.innerText += value;
-           }
+            }
 
         }
 
