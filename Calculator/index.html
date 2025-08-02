@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div id="parentDiv">
+
+    </div>
+    <script>
+        let parentDiv = document.getElementById('parentDiv')
+        parentDiv.style.margin = "auto"
+        parentDiv.style.width = "600px"
+        // let table = document.createElement("table")
+        // table.style = "border: 1px solid black; width: 500px;"
+        // let tr1 = document.createElement("tr")
+        // let td1 = document.createElement("td")
+        // td1.style.border = "1px solid black"
+        // td1.style.height = "40px"
+        // let colspan1 = document.createAttribute("colspan")
+        // colspan1.value = "4";
+        // td1.setAttributeNode(colspan1)
+        // tr1.appendChild(td1)
+        // table.appendChild(tr1);
+        // let tr2 = document.createElement("tr")
+        // let td2 = document.createElement("td")
+        // let td3 = document.createElement("td")
+        // let td4 = document.createElement("td")
+        // let td5 = document.createElement("td")
+
+        // td2.style.border = "1px solid black"
+        // td2.style.height = "40px"
+        // td2.style.textAlign = "center"
+        // td3.style.border = "1px solid black"
+        // td3.style.height = "40px"
+        // td3.style.textAlign = "center"
+        // td4.style.border = "1px solid black"
+        // td4.style.height = "40px"
+        // td4.style.textAlign = "center"
+        // td5.style.border = "1px solid black"
+        // td5.style.height = "40px"
+        // td5.style.textAlign = "center"
+        // td2.innerText = "1";
+        // td3.innerText = "2";
+        // td4.innerText = "3";
+        // td5.innerText = "X";
+        // tr2.appendChild(td2)
+        // tr2.appendChild(td3)
+        // tr2.appendChild(td4)
+        // tr2.appendChild(td5)
+        // table.appendChild(tr2);
+        // parentDiv.appendChild(table);
+
+        let buttons = [
+            "7", "8", "9", "/","4", "5", "6", "*","1", "2", "3", "-","0", "C", "=", "+"
+        ];
+        let display = document.createElement("div");
+        display.style.border = "1px solid black"
+        display.style.height = "40px"
+        display.style.margin = '0 0 10px 0'
+        parentDiv.appendChild(display);
+
+        let btnDiv = document.createElement("div");
+        btnDiv.style.width = "600px"
+        btnDiv.style.display = "flex"
+        btnDiv.style.flexWrap = 'wrap'
+        btnDiv.style.gap = "10px";
+        for (let i = 0; i < 16; i++) {
+            let btn = document.createElement("button");
+            btn.style.width = '142px';
+            btn.style.height = '40px';
+            btn.innerText = buttons[i];
+            // var val=[];
+            btn.addEventListener("click", function(){
+                // val.push(buttons[i])
+                // console.log(val)
+                handleClick(buttons[i]);
+            })
+            btnDiv.appendChild(btn)
+            parentDiv.appendChild(btnDiv)
+        }
+        display.style.padding= "10px"
+        display.style.fontSize='30px'
+        let displayValue=[]
+        function handleClick(value){
+           if(displayValue[displayValue.length-1]=='+'){
+                displayValue = display
+           }
+           else{
+            display = value
+           }
+
+        }
+
+    </script>
+</body>
+
+</html>
