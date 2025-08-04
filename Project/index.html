@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h4>Edit your Profile</h4>
+    <div >
+        <form action="abc.html" class="update-form"  onsubmit="return updateCheck()">
+
+            <label class="label" for="">First Name</label>
+            <input id="fname" class="input-text " type="text">
+            <p id="fnameErr"></p>
+
+            <label for="">Last Name</label>
+            <input id="lname" class="input-text " type="text">
+            <p id="lnameErr"></p>
+
+            <label for="">Email</label>
+            <input class="input-text" type="email">
+            
+            <label for="">Phone number</label>
+            <input class="input-text" type="text" name="" id="">
+            
+            <label for="">Address</label>
+            <textarea name="" id="" cols="30" rows="5"></textarea>
+
+            <label for="">Upload Image</label>
+            <input style="    width: 100%; margin: 10px 0;" type="file">
+
+           <button class="update-btn">
+             <input  style="border: none; font-size: 20px; color: white; background-color: transparent;" type="submit" value="Update">
+           </button>
+        </form>
+    </div>
+
+    <script>
+         function charCheck(name) {
+            for (let i = 0; i < name.length; i++) {
+                const element = name[i];
+                console.log(element);
+                if (!((element >= 'A' && element <= 'Z')
+                    || (element >= 'a' && element <= 'z')
+                    || element == '.' || element == '-')) { 
+                        return false;
+                    }
+            }
+            return true;
+        }
+
+        function updateCheck() {
+            let fname = document.getElementsByID('fname').value.trim();
+            let lname = document.getElementsByID('lname').value.trim();
+            let fnameErr = document.getElementById("fnameErr");
+            let lnameErr = document.getElementById("lnameErr")
+            if (fname === "") {
+                fnameErr.innerHTML = "First Name cannot be empty"
+                fnameErr.style.color = 'red';
+                return false
+            }
+            else if (lname === "") {
+                fnameErr.innerHTML = "First Name cannot be empty"
+                fnameErr.style.color = 'red';
+                return false
+            }
+
+            else if (name.length < 2) {
+                nameErr.innerHTML = "Name must contain at least two words"
+                nameErr.style.color = 'red';
+                return false
+            }
+            else if (name[0] >= 0 || name[0] <= 9) {
+                nameErr.innerHTML = "Name cannot start with number";
+                nameErr.style.color = 'red';
+                return false
+            }
+            else if (!charCheck(name)) {
+                nameErr.innerHTML = "Name can contain 'A-Z' or 'a-z' or '-' or '.'";
+                nameErr.style.color = 'red';
+                return false
+            }
+            else {
+                nameErr.innerHTML = "";
+            }
+
+        }
+    </script>
+</body>
+
+</html>
