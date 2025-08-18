@@ -52,9 +52,10 @@
         }
 
         function updateCheck() {
-            let fname = document.getElementsByID('fname').value.trim();
-            let lname = document.getElementsByID('lname').value.trim();
+            let fname = document.getElementById('fname').value.trim();
+            let lname = document.getElementById('lname').value.trim();
             let fnameErr = document.getElementById("fnameErr");
+            console.log(fname, lname);
             let lnameErr = document.getElementById("lnameErr")
             if (fname === "") {
                 fnameErr.innerHTML = "First Name cannot be empty"
